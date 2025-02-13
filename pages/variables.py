@@ -1,6 +1,5 @@
 from flet import Container, padding, Page, Column, Text, Row, MainAxisAlignment
 from modules.fonctions import pourcentage
-from modules.color import DEEP_BLUE
 from modules.syntaxe import Syntaxe
 
 class Display(Container):

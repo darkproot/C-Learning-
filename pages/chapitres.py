@@ -79,7 +79,6 @@ class Chapitres(Container):
         page: Page = e.page
         display = page.controls[0].controls
         data: str = e.control.data.lower()
-        print(data)
         match data:
             case 'variables': display[-1] = variables.Display(page)
             case 'fichiers': display[-1] = fichier.Display(page)
