@@ -4,7 +4,7 @@ from .fonctions import pourcentage
 from .color import BG, DEEP_BLUE
 
 class Syntaxe(Container):
-    def __init__(self, page: Page, height: int = 200, content: str = 'Container'):
+    def __init__(self, page: Page, height: int = 200, content: str = 'Container', font_size: int = 20):
         super().__init__(
             expand=True,
             height=height,
@@ -27,7 +27,7 @@ class Syntaxe(Container):
             ),
             content=Column([
                 Container(Row([Text("Syntaxe", text_align='center', expand=True, color='white', weight='bold')]), height=40, bgcolor=BG, border_radius=BorderRadius(10, 10, 0, 0), border=Border(bottom=BorderSide(3, BG))),
-                Container(Row([Text(self.s_content, size=20, expand=True, text_align='center', color='white', style=self.text_shadow, font_family='code')]), bgcolor=colors.with_opacity(.4, 'white'), blur=5, expand=True, border_radius=BorderRadius(0, 0, 20, 20))
+                Container(Row([Text(self.s_content, size=font_size, expand=True, text_align='center', color='white', style=self.text_shadow, font_family='code')]), bgcolor=colors.with_opacity(.4, 'white'), blur=5, expand=True, border_radius=BorderRadius(0, 0, 20, 20))
             ], spacing=0, height=self.s_height)
         )
         self.content = Row([self.container], alignment=MainAxisAlignment.CENTER)

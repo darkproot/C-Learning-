@@ -1,6 +1,6 @@
 from flet import Container, padding, Page, MainAxisAlignment, Column, Row, Text
 from modules.fonctions import pourcentage
-from modules.color import DEEP_BLUE
+from modules.texte import Texte
 
 class Display(Container):
     def __init__(self, page: Page):
@@ -11,4 +11,4 @@ class Display(Container):
             height=page.window.height - 70,
             padding=padding.only(pourcentage(page.window.width, 10), 15, pourcentage(page.window.width, 10)),
         )
-        self.content = Column([Row([Text("Fonction", text_align='center', expand=True, color=DEEP_BLUE, weight='bold', size=50)])], alignment=MainAxisAlignment.CENTER)
+        self.content = Column([Texte("En langage C, une variable est un espace mémoire réservé permettant de stocker des données. Les variables jouent un rôle fondamental en programmation, car elles permettent de manipuler des informations dynamiquement au cours de l’exécution d’un programme")], alignment=MainAxisAlignment.CENTER)

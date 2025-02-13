@@ -7,6 +7,7 @@ def main(page: Page):
     page.bgcolor = color.BG
     page.fonts = {
         'code': r"utils\polices\JetBrainsMono-Medium.ttf",
+        'texte': r"utils\polices\WorkSans-Medium.ttf",
     }
     page.add(Row(
         [
