@@ -5,6 +5,9 @@ from modules import color
 def main(page: Page):
     page.title = "C LEARNING"
     page.bgcolor = color.BG
+    page.fonts = {
+        'code': r"utils\polices\JetBrainsMono-Medium.ttf",
+    }
     page.add(Row(
         [
             base.SideBar(page),

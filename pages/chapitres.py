@@ -1,15 +1,16 @@
 from flet import Container, Page, Column, Row, MainAxisAlignment, Offset, BoxShadow
 from flet import colors, Icon, icons, Text, TextStyle, Animation
-from flet import ControlEvent, ScrollMode, padding, ListView
+from flet import ControlEvent, padding, ListView
 from modules.color import DEEP_BLUE, BLUE
 from modules.fonctions import pourcentage
+from pages import variables, fichier, fonction_chapitre, pointeur, operateurs, struct_controle, struct_donnnee
 
 class Display(Container):
     CHAPITRES: list[str] = [
         'variables',
         'operateurs',
         'structures de controles',
-        'structures de donnnees',
+        'structures de donnees',
         'Fonctions',
         'Pointeurs',
         'Fichiers',
@@ -53,6 +54,8 @@ class Chapitres(Container):
             animate_offset=Animation(500, 'ease'),
             animate=Animation(500, 'ease'),
             on_hover=self.hover,
+            on_click=self.click,
+            data=chapitre,
         )
         self.content = Column(
             controls=[
@@ -70,6 +73,22 @@ class Chapitres(Container):
                 Row([Text(description, expand=True, text_align='center', weight='w_700', color='white', style=TextStyle(shadow=BoxShadow(1, 1, 'black38', Offset(2, 2))))]),
             ]
         )
+
+    @staticmethod
+    def click(e: ControlEvent):
+        page: Page = e.page
+        display = page.controls[0].controls
+        data: str = e.control.data.lower()
+        print(data)
+        match data:
+            case 'variables': display[-1] = variables.Display(page)
+            case 'fichiers': display[-1] = fichier.Display(page)
+            case 'operateurs': display[-1] = operateurs.Display(page)
+            case 'structures de controles': display[-1] = struct_controle.Display(page)
+            case 'structures de donnees': display[-1] = struct_donnnee.Display(page)
+            case 'pointeurs': display[-1] = pointeur.Display(page)
+            case 'fonctions': display[-1] = fonction_chapitre.Display(page)
+        page.update()
     
     def hover(self, e: ControlEvent): 
         page: Page = e.page
