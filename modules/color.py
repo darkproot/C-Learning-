@@ -1,0 +1,5 @@
+BG = "#021024"
+DEEP_BLUE = "#052659"
+BLUE = "#5483b3"
+ADVANCED_BLUE = "#7da0c4"
+LIGHT_BLUE = "#c1e8ff"
