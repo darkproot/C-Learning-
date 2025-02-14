@@ -12,4 +12,4 @@ class Display(Container):
             height=page.window.height - 70,
             padding=padding.only(pourcentage(page.window.width, 10), 15, pourcentage(page.window.width, 10)),
         )
-        self.content = Column([Code()], alignment=MainAxisAlignment.CENTER)
+        self.content = Column([Code("#include <stdio.h>\n\nvoid main(){\n\tprintf(\"Hello World!\");\n}", 5)], alignment=MainAxisAlignment.CENTER)

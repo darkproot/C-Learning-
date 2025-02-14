@@ -13,7 +13,7 @@ INTRO3: str = """L'utilisation efficace des variables est essentielle pour écri
 
 PARA1: str = """Avant d'utiliser une variable, il faut la déclarer en précisant son type. Voici la syntaxe de base :"""
 SYNTAXE1: str = """<type> nom_variable;\nou\n<type> nom_variable = <valeur>;"""
-EXEMPLE1: str = """int number;\nint age = 19;\nfloat prix = 12.5;\nhar lettre = 'A';"""
+EXEMPLE1: str = f"""#include <stdio.h>\n\nvoid main() {{\n{'\t'*4}int number;\n{'\t'*4}int age = 19;\n{'\t'*4}float prix = 12.5;\n{'\t'*4}char lettre = 'A';\n}}"""
 INT: str = f"""Nombre Entier: (1, 2, 4){'\t\t'*3}Taile: 2 ou 4 octets"""
 CHAR: str = f"""Caractere: ('r, '2', '$'){'\t\t'*3}Taile: 1 octet"""
 SHORT_INT: str = f"""Entier de petite taile: ('0, '1', '4'){'\t\t'*3}Taile: 2 octets"""
@@ -26,16 +26,16 @@ LONG_DOUBLE: str = f"""Reels de tres grande taille{'\t\t'*3}Taile: 10 octets"""
 
 PARA2: str = """Le langage C propose plusieurs types de variables :"""
 PARA3: str = """Chaque variable est stockée à une adresse mémoire spécifique. On peut afficher cette adresse avec l'opérateur & et la fonction printf :"""
-EXEMPLE2: str = """int nombre = 10;\nprintf("Adresse mémoire de nombre : %p", &nombre);\n"""
+EXEMPLE2: str = f"""#include <stdio.h>\n\nvoid main() {{\n{'\t'*4}int nombre = 10;\n{'\t'*4}printf("Adresse mémoire de nombre : %p", &nombre);\n}}"""
 PARA4: str = """Une variable constante est une variable dont la valeur ne peut pas être modifiée après l'initialisation. On utilise le mot-clé const :"""
-EXEMPLE3: str = """const float PI = 3.14159;"""
+EXEMPLE3: str = f"""void main() {{\n{'\t'*4}const float PI = 3.14159;\n}}"""
 PARA5: str = """Toute tentative de modification d'une constante entraînera une erreur de compilation."""
 PARA6: str = """La portée d'une variable définit où elle peut être utilisée. En C, il existe trois types principaux de portée :"""
 PARA7: str = """La variable est définie dans une fonction et n'est accessible que dans cette fonction."""
 PARA8: str = """La variable est définie en dehors de toute fonction et peut être utilisée partout dans le programme."""
 PARA9: str = """La variable conserve sa valeur même après la fin de l'exécution de la fonction."""
-EXEMPLE4: str = f"""int globale = 100;\n\nvoid fonction() {{\n{'\t\t'*3}int locale = 10;\n{'\t\t'*3}static int statique = 5;\n{'\t\t'*3}statique++;\n}}"""
-EXEMPLE5: str = """int score = 0;\nscore = 10;\nscore += 5;"""
+EXEMPLE4: str = f"""int globale = 100;\n\nvoid fonction() {{\n{'\t\t'*3}int locale = 10;\n{'\t\t'*3}static int statique = 5;\n{'\t\t'*3}statique++;\n}}\n\nvoid main(){{}}"""
+EXEMPLE5: str = f"""void main() {{\n{'\t'*4}int score = 0;\n{'\t'*4}score = 10;\n{'\t'*4}score += 5;\n}}"""
 CONCLUSION: str = """Les variables sont essentielles en C car elles permettent de stocker et manipuler des données. Il est important de choisir le bon type pour optimiser l'utilisation de la mémoire et garantir l'exactitude des calculs."""
 
 class Display(Container):
@@ -59,7 +59,7 @@ class Display(Container):
                 Spacing(),
                 Texte(PARA1),
                 Syntaxe(page, content=SYNTAXE1),
-                Exemple(page, enonce='', code=Code(EXEMPLE1, 4), height=430),
+                Exemple(page, enonce='', code=Code(EXEMPLE1, 8), height=520),
                 Spacing(),
                 Titre("2- Types de Variables en C"),
                 Texte(PARA2),
@@ -76,12 +76,12 @@ class Display(Container):
                 Titre("3- Les Variables et la Mémoire"),
                 Spacing(),
                 Texte(PARA3),
-                Exemple(page, 420, '', Code(EXEMPLE2, 3)),
+                Exemple(page, 530, '', Code(EXEMPLE2, 7)),
                 Spacing(),
                 Titre("4- Les Variables Constantes"),
                 Spacing(),
                 Texte(PARA4),
-                Exemple(page, 380, '', Code(EXEMPLE3, 1)),
+                Exemple(page, 380, '', Code(EXEMPLE3, 3)),
                 Spacing(20),
                 Texte(PARA5),
                 Spacing(),
@@ -96,7 +96,7 @@ class Display(Container):
                 Titre('6- Modification des Variables'),
                 Spacing(),
                 Texte("Une variable peut être modifiée après sa déclaration en utilisant des opérateurs:"),
-                Exemple(page, 400, '', Code(EXEMPLE5, 3)),
+                Exemple(page, 450, '', Code(EXEMPLE5, 5)),
                 Spacing(),
                 Titre('Conclusion'),
                 Spacing(),

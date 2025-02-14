@@ -1,5 +1,21 @@
 from flet import Container, CupertinoTextField, Column, TextStyle, FilledButton, Row, IconButton, ButtonStyle, MainAxisAlignment
-from .color import DEEP_BLUE
+from flet import ControlEvent, Page
+import subprocess
+import tempfile
+
+def create_tmp_file(data: str, extension: str = '.c') -> str:
+    """Fonction qui cree un fichier temporaire et renvoit le chemin vers ce fichier
+
+    Args:
+        data (str): donnee a ecrire
+        extension (str, optional): Extension du fichier. Defaults to '.c'.
+
+    Returns:
+        str: Chemin vers le fichier
+    """
+    with tempfile.NamedTemporaryFile(suffix=extension, delete=False) as file:
+        file.write(data.encode())
+        return file.name
 
 class Code(Container):
     def __init__(self, code: str = "int a = 4;", num_line: int = 7):
@@ -19,16 +35,35 @@ class Code(Container):
             text_style=TextStyle(font_family='code'),
         )
         self.output_code = CupertinoTextField(
-            value='output',  
+            value='...',  
             expand=True,
-            min_lines=5, 
-            max_lines=5, 
+            min_lines=4, 
+            max_lines=4,
+            read_only=True, 
             text_style=TextStyle(font_family='code'),
         )
         self.content = Column(
             controls=[
                 Row([self.input_code], alignment=MainAxisAlignment.CENTER, expand=True),
-                Row([FilledButton('Compile', icon='cupertino_play', icon_color='white', expand=True, style=ButtonStyle('white', bgcolor='green')), IconButton('clear', 'white', bgcolor='red')], expand=True),
+                Row([FilledButton('Compile', icon='cupertino_play', icon_color='white', expand=True, style=ButtonStyle('white', bgcolor='green'), on_click=self.execute), IconButton('cupertino_refresh', 'white', bgcolor='red', on_click=self.reset)], expand=True),
                 Row([self.output_code], alignment=MainAxisAlignment.CENTER, expand=True),
             ]
         )
+        self.data = code
+
+    def reset(self, e: ControlEvent):
+        """Fonction pour reinitialise le code"""
+        page: Page = e.page
+        self.output_code.value = '...'
+        self.input_code.value = self.data
+        page.update()
+
+    def execute(self, e: ControlEvent):
+        """Fonction qui execute le code de self.input_code et le met dans self.output_code"""
+        page: Page = e.page
+        data: str = self.input_code.value
+        output = subprocess.run(['utils\\tcc\\tcc.exe', '-run', create_tmp_file(data)], capture_output=True, text=True)
+        self.output_code.value = output.stderr + output.stdout
+        if output.stderr == output.stdout == '':
+            self.output_code.value = "Code execute avec succes"
+        page.update()
