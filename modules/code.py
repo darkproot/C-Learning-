@@ -18,7 +18,7 @@ def create_tmp_file(data: str, extension: str = '.c') -> str:
         return file.name
 
 class Code(Container):
-    def __init__(self, code: str = "int a = 4;", num_line: int = 7):
+    def __init__(self, code: str = "void main() {}", num_line: int = 7):
         super().__init__(
             padding=20,
             border_radius=20,
@@ -45,11 +45,18 @@ class Code(Container):
         self.content = Column(
             controls=[
                 Row([self.input_code], alignment=MainAxisAlignment.CENTER, expand=True),
-                Row([FilledButton('Compile', icon='cupertino_play', icon_color='white', expand=True, style=ButtonStyle('white', bgcolor='green'), on_click=self.execute), IconButton('cupertino_refresh', 'white', bgcolor='red', on_click=self.reset)], expand=True),
+                Row([FilledButton('Compile', icon='cupertino_play', icon_color='white', expand=True, style=ButtonStyle('white', bgcolor='green'), on_click=self.execute, on_hover=self.hover_btn), Container(IconButton('cupertino_refresh', 'white', bgcolor='red', on_click=self.reset))], expand=True),
                 Row([self.output_code], alignment=MainAxisAlignment.CENTER, expand=True),
             ]
         )
         self.data = code
+
+    def hover_btn(self, e: ControlEvent):
+        btn: FilledButton = e.control
+        style = btn.style
+        if e.data == 'true': style.icon_size = 30
+        else: style.icon_size = 25
+        e.page.update()
 
     def reset(self, e: ControlEvent):
         """Fonction pour reinitialise le code"""
