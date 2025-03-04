@@ -22,17 +22,14 @@ class Table(Container):
                     horizontal_lines=BorderSide(2, DEEP_BLUE),
                     vertical_lines=BorderSide(2, DEEP_BLUE),
                     expand=True,
-                    columns=[
-                        DataColumn(Row([Texte(data[0][0], weight='bold', color=BLUE)])), 
-                        DataColumn(Row([Texte(data[0][1], weight='bold', color=BLUE)])),
-                        DataColumn(Row([Texte(data[0][2], weight='bold', color=BLUE)])), 
-                        DataColumn(Row([Texte(data[0][3], weight='bold', color=BLUE)])),
-                    ]
+                    columns=[]
                 )
             ],
             expand=True, 
             alignment=MainAxisAlignment.CENTER,
         )
+        for column in data[0]:
+            self.content.controls[0].columns.append(DataColumn(Row([Texte(column, weight='bold', color=BLUE)]))) 
         for row in data[1:]:
             cache: list[DataCell] = []
             for i in row:
