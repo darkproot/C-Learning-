@@ -11,7 +11,7 @@ class Texte(Container):
             Text(
                 f"{'\t'*8}" + text, 
                 expand=True,
-                size=15,
+                size=20,
                 color='black',
                 font_family='texte',
             )

@@ -17,6 +17,22 @@ def create_tmp_file(data: str, extension: str = '.c') -> str:
         file.write(data.encode())
         return file.name
 
+class MiniCode(Container):
+    def __init__(self, code: str = "void main() {}"):
+        super().__init__(
+            padding=10,
+        )
+        self.number_line = code.count('\n') + 1 if code.count('\n') != 0 else 1
+        self.texteField = CupertinoTextField(
+                value=code,
+                expand=True,
+                min_lines=self.number_line, 
+                max_lines=self.number_line, 
+                text_style=TextStyle(font_family='code'),
+        )
+        self.content = Row([self.texteField], alignment=MainAxisAlignment.CENTER, expand=True)
+
+
 class Code(Container):
     def __init__(self, code: str = "void main() {}", num_line: int = 7):
         super().__init__(
