@@ -25,7 +25,7 @@ class Display(Container):
         icons.FILE_OPEN,
     ]
     CHAPITRES_DESCRIPTION: list[str] = [
-        '02 exercices',
+        '01 exercice',
         '03 exercices',
         '11 exercices',
         '04 exercices',
