@@ -1,6 +1,6 @@
 from flet import Container, CupertinoTextField, Column, TextStyle, FilledButton, Row, IconButton, ButtonStyle, MainAxisAlignment, icons
 from flet import ControlEvent, Page, Animation
-from modules.texte import Texte
+from modules.texte import Texte, Spacing
 import subprocess
 import tempfile
 
@@ -54,10 +54,11 @@ class ExerciceCode(Container):
         self.texteField = CupertinoTextField(
                 value=code,
                 expand=True,
+                multiline=True,
                 min_lines=self.number_line, 
                 max_lines=self.number_line, 
                 text_style=TextStyle(font_family='code'),
-                animate_size=Animation(600, 'ease')
+                animate_size=Animation(600, 'ease'),
         )
         self.output_code = CupertinoTextField(
                 value='...',  
@@ -68,7 +69,7 @@ class ExerciceCode(Container):
                 text_style=TextStyle(font_family='code'),
         )
         self.content = Column([
-            Texte(self.texte),
+            Texte(self.texte), Spacing(),
             Row([self.texteField], alignment=MainAxisAlignment.CENTER, expand=True),
             Row([self.compile_btn, self.clear_btn, self.revill_btn, self.add_line_btn, self.remove_line_btn], expand=True),
             Row([self.output_code]),
@@ -131,6 +132,7 @@ class Code(Container):
         self.input_code = CupertinoTextField(
             value=code,
             expand=True,
+            multiline=True,
             min_lines=num_line, 
             max_lines=num_line, 
             text_style=TextStyle(font_family='code'),
