@@ -186,5 +186,6 @@ class Display(Container):
                 Spacing(),
                 Point('Exercice 3'),
                 Spacing(), ExerciceCode(**EXERCICE3),
+                Spacing(),
             ]
         )

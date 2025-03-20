@@ -25,13 +25,13 @@ class Display(Container):
         icons.FILE_OPEN,
     ]
     CHAPITRES_DESCRIPTION: list[str] = [
-        '01 exercice',
-        '03 exercices',
-        '11 exercices',
-        '04 exercices',
-        '10 exercices',
-        '05 exercices',
-        '03 exercices',
+        '10 QCM',
+        '10 QCM',
+        '10 QCM et 03 exercices',
+        '10 QCM et 03 exercices',
+        '10 QCM et 10 exercices',
+        '10 QCM et 05 exercices',
+        '10 QCM et 03 exercices',
     ]
     def __init__(self, page: Page):
         super().__init__(

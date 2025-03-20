@@ -4,6 +4,7 @@ from modules.fonctions import pourcentage
 from pages.exercises import variables
 from pages.exercises import operateurs
 from pages.exercises import struct_controle
+from pages.exercises import struct_donnne
 from modules.color import DEEP_BLUE
 
 def change_page(e: ControlEvent): 
@@ -17,6 +18,8 @@ def change_page(e: ControlEvent):
             display[-1] = operateurs.Display(page)
         case 'structures de controles':
             display[-1] = struct_controle.Display(page)
+        case 'structures de donnees':
+            display[-1] = struct_donnne.Display(page)
     page.update()
 
 class Display(Container):

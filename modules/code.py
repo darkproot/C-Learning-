@@ -36,16 +36,17 @@ class MiniCode(Container):
                 min_lines=self.number_line, 
                 max_lines=self.number_line, 
                 text_style=TextStyle(font_family='code'),
+                read_only=True,
         )
         self.content = Row([self.texteField], alignment=MainAxisAlignment.CENTER, expand=True)
 
 class ExerciceCode(Container):
-    def __init__(self, text: str = '', code: str = BASE, number_of_line: int = 5, solution: str = 'void main() {}'):
+    def __init__(self, text: str = '', code: str = BASE, number_of_line: int = 0, solution: str = 'void main() {}'):
         super().__init__()
         self.solution = solution
         self.texte = text
         self.code = code
-        self.number_line = number_of_line
+        self.number_line = code.count('\n') + 1 if not number_of_line else number_of_line
         self.compile_btn = FilledButton('Compile', icon='cupertino_play', icon_color='white', expand=True, style=ButtonStyle('white', bgcolor='green'), on_click=self.execute, on_hover=self.hover_btn)
         self.revill_btn = Container(IconButton('upload', 'white', bgcolor='orange', on_click=self.revill))
         self.clear_btn = Container(IconButton('cupertino_refresh', 'white', bgcolor='red', on_click=self.reset))
