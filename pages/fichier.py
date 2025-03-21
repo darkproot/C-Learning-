@@ -4,7 +4,7 @@ from modules.code import Code
 from modules.exemple import Exemple
 from modules.syntaxe import Syntaxe
 from modules.texte import Texte, Spacing
-from modules.title import Titre
+from modules.title import Titre, GrandTitre
 from modules.point import Point
 from modules.tableau import Table
 
@@ -182,6 +182,7 @@ class Display(Container):
         )
         self.content = ListView(
             controls=[
+                GrandTitre(text="Fichiers"), Spacing(),
                 Titre("Introduction"),
                 Spacing(), Texte(INTRO),
                 Spacing(), Titre('1- Ouverture d\'un fichier'),

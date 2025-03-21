@@ -1,11 +1,10 @@
 from flet import Container, padding, Page, ListView
 from modules.fonctions import pourcentage
-from modules.color import DEEP_BLUE
 from modules.exemple import Exemple
 from modules.code import Code
 from modules.syntaxe import Syntaxe
 from modules.texte import Texte, Spacing
-from modules.title import Titre
+from modules.title import Titre, GrandTitre
 from modules.point import Point
 
 INTRO: str = """Le langage C est un langage de programmation impératif qui repose sur des structures de contrôle permettant de diriger le flux d'exécution d'un programme. Ces structures de contrôle sont essentielles pour la prise de décision, la répétition d'instructions et la gestion du flux du programme."""
@@ -216,6 +215,7 @@ class Display(Container):
         )
         self.content = ListView(
             controls=[
+                GrandTitre(text="Structures de contrôle", font_size=30), Spacing(),
                 Titre('Introduction'),
                 Spacing(), Texte(INTRO), Texte(INTRO2),
                 Spacing(), Titre("1- Les structures conditionnelles"),

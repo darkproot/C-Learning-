@@ -4,6 +4,7 @@ from modules.color import DEEP_BLUE, BLUE, BG
 from pages import chapitres
 from modules.fonctions import pourcentage
 from pages.exercises import base
+from pages import a_propos
 
 def change_page(e: ControlEvent): 
     page: Page = e.page
@@ -16,6 +17,8 @@ def change_page(e: ControlEvent):
             display[-1] = Display(page)
         case 'exercices':
             display[-1] = base.Display(page)
+        case 'a propos':
+            display[-1] = a_propos.Display(page)
     page.update()
 
 class SideBar(Container):

@@ -2,7 +2,7 @@ from flet import Container, padding, Page, ListView
 from modules.fonctions import pourcentage
 from modules.texte import Texte, Spacing
 from modules.syntaxe import Syntaxe
-from modules.title import Titre
+from modules.title import Titre, GrandTitre
 from modules.exemple import Exemple
 from modules.code import Code
 from modules.point import Point
@@ -95,6 +95,7 @@ class Display(Container):
         )
         self.content = ListView(
             controls=[
+                GrandTitre(text="Fonctions"), Spacing(),
                 Titre("Introduction"),
                 Spacing(), Texte(INTRO),
                 Spacing(), Titre('1- Définition d\'une Fonction'),

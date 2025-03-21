@@ -4,7 +4,7 @@ from modules.code import Code
 from modules.syntaxe import Syntaxe
 from modules.exemple import Exemple
 from modules.texte import Texte, Spacing
-from modules.title import Titre
+from modules.title import Titre, GrandTitre
 from modules.point import Point
 
 INTRO: str = """Les pointeurs sont l'un des concepts fondamentaux et puissants du langage C. Ils permettent de manipuler directement la mémoire, ce qui rend le langage très efficace."""
@@ -121,6 +121,7 @@ class Display(Container):
         )
         self.content = ListView(
             controls=[
+                GrandTitre(text="Pointeurs"), Spacing(),
                 Titre('Pointeur'),
                 Spacing(), Texte(INTRO),
                 Spacing(), Titre('1- Introduction aux Pointeurs'),

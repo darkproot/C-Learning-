@@ -1,6 +1,6 @@
 from flet import Container, padding, Page, ListView
 from modules.fonctions import pourcentage
-from modules.title import Titre
+from modules.title import Titre, GrandTitre
 from modules.texte import Texte, Spacing
 from modules.tableau import Table
 from modules.exemple import Exemple
@@ -104,6 +104,7 @@ class Display(Container):
         )
         self.content = ListView(
             controls=[
+                GrandTitre(text="Opérateurs"), Spacing(),
                 Titre('Introduction'),
                 Spacing(), Texte(INTRO),
                 Spacing(), Titre("1- Les opérateurs arithmétiques"),

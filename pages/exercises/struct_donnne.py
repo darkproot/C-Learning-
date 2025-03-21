@@ -1,7 +1,7 @@
 from flet import Container, ListView, Page, padding
 from modules.fonctions import pourcentage
 from modules.qcm import Qcm
-from modules.title import Titre
+from modules.title import Titre, GrandTitre
 from modules.texte import Spacing
 from modules.point import Point
 from modules.code import ExerciceCode, MiniCode
@@ -252,6 +252,7 @@ class Display(Container):
         )
         self.content = ListView(
             controls=[
+                GrandTitre(text="Structures de données", font_size=30), Spacing(),
                 Titre("Questions a choix multiple"),
                 Spacing(),
                 Qcm(**QCM1),

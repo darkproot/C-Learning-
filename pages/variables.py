@@ -1,11 +1,25 @@
 from flet import Container, padding, Page, ListView, Row
 from modules.fonctions import pourcentage
 from modules.syntaxe import Syntaxe
-from modules.title import Titre
+from modules.title import Titre, GrandTitre
 from modules.texte import Texte, Spacing
 from modules.exemple import Exemple
 from modules.code import Code
+from modules.tableau import Table
 from modules.point import Point
+
+TABLEAU: list[list[str]] = [
+    ['Type', 'Taille Mémoire', 'Exemples'],
+    ["void", "0 octet", "Généralement pour le retour des fonctions"],
+    ["char", "1 octet", "45, A, b"],
+    ["short int", "2 octets", "100, 4, 0"],
+    ["long", "4 octets", "34534, -5134, 34"],
+    ["int", "2 ou 4 octets", "59, 517, -3452"],
+    ["long long", "8 octets", "34534345, -34234, 0"],
+    ["float", "4 octets", "4.343232, 0.0, -7735.0"],
+    ["double", "8 octets", "0.000000004, -0.99945, 1327.9"],
+    ["long double", "10 octets", "les réels"],
+]
 
 INTRO: str = """En langage C, une variable est un espace mémoire réservé permettant de stocker des données. Les variables jouent un rôle fondamental en programmation, car elles permettent de manipuler des informations dynamiquement au cours de l'exécution d'un programme."""
 INTRO2: str = """Chaque variable en C possède un type (int, float, char, etc.), qui définit la nature des données qu'elle peut contenir, ainsi qu'un nom qui permet d'y accéder. Avant d'utiliser une variable, il est nécessaire de la déclarer, et dans certains cas, de l'initialiser avec une valeur par défaut."""
@@ -14,15 +28,6 @@ INTRO3: str = """L'utilisation efficace des variables est essentielle pour écri
 PARA1: str = """Avant d'utiliser une variable, il faut la déclarer en précisant son type. Voici la syntaxe de base :"""
 SYNTAXE1: str = """<type> nom_variable;\nou\n<type> nom_variable = <valeur>;"""
 EXEMPLE1: str = f"""#include <stdio.h>\n\nvoid main() {{\n{'\t'*4}int number;\n{'\t'*4}int age = 19;\n{'\t'*4}float prix = 12.5;\n{'\t'*4}char lettre = 'A';\n}}"""
-INT: str = f"""Nombre Entier: (1, 2, 4){'\t\t'*3}Taile: 2 ou 4 octets"""
-CHAR: str = f"""Caractere: ('r, '2', '$'){'\t\t'*3}Taile: 1 octet"""
-SHORT_INT: str = f"""Entier de petite taile: ('0, '1', '4'){'\t\t'*3}Taile: 2 octets"""
-VOID: str = f"""Aucune valeur{'\t\t'*3}Taile: 0 octet"""
-LONG: str = f"""Entier de grande taille{'\t\t'*3}Taile: 4 octets"""
-LONG_LONG: str = f"""Entier de  tres grande taille{'\t\t'*3}Taile: 8 octets"""
-FLOAT: str = f"""Reels: (1, 0.3, -23.5){'\t\t'*3}Taile: 4 octets"""
-DOUBLE: str = f"""Reels de grande taille{'\t\t'*3}Taile: 8 octets"""
-LONG_DOUBLE: str = f"""Reels de tres grande taille{'\t\t'*3}Taile: 10 octets"""
 
 PARA2: str = """Le langage C propose plusieurs types de variables :"""
 PARA3: str = """Chaque variable est stockée à une adresse mémoire spécifique. On peut afficher cette adresse avec l'opérateur & et la fonction printf :"""
@@ -49,6 +54,8 @@ class Display(Container):
         )
         self.content = ListView(
             controls=[
+                GrandTitre(text='Variables'),
+                Spacing(),
                 Titre("Introduction"),
                 Spacing(),
                 Texte(INTRO),
@@ -62,16 +69,10 @@ class Display(Container):
                 Exemple(page, enonce='', code=Code(EXEMPLE1, 8), height=520),
                 Spacing(),
                 Titre("2- Types de Variables en C"),
+                Spacing(),
                 Texte(PARA2),
-                Spacing(20), Point('void'), Texte(VOID),
-                Spacing(20), Point('char'), Texte(CHAR),
-                Spacing(20), Point('short int'), Texte(SHORT_INT),
-                Spacing(20), Point('int'), Texte(INT),
-                Spacing(20), Point('long'), Texte(LONG),
-                Spacing(20), Point('long long'), Texte(LONG_LONG),
-                Spacing(20), Point('float'), Texte(FLOAT),
-                Spacing(20), Point('double'), Texte(DOUBLE),
-                Spacing(20), Point('long double'), Texte(LONG_DOUBLE),
+                Spacing(),
+                Table(TABLEAU),
                 Spacing(),
                 Titre("3- Les Variables et la Mémoire"),
                 Spacing(),
