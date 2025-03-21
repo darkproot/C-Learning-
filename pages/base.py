@@ -5,6 +5,7 @@ from pages import chapitres
 from modules.fonctions import pourcentage
 from pages.exercises import base
 from pages import a_propos
+from pages import dev_info
 
 def change_page(e: ControlEvent): 
     page: Page = e.page
@@ -19,6 +20,8 @@ def change_page(e: ControlEvent):
             display[-1] = base.Display(page)
         case 'a propos':
             display[-1] = a_propos.Display(page)
+        case 'dev infomations':
+            display[-1] = dev_info.Display(page)
     page.update()
 
 class SideBar(Container):
@@ -27,12 +30,14 @@ class SideBar(Container):
         'chapitres',
         'exercices',
         'a propos',
+        'dev infomations',
     ]
     OPTIONS_ICON: list[str] = [
         icons.HOME,
         icons.KEYBOARD_OPTION_KEY_SHARP,
-        icons.PRODUCTION_QUANTITY_LIMITS_OUTLINED,
+        icons.ASSIGNMENT,
         icons.HELP,
+        icons.DEVELOPER_MODE,
     ]
     def __init__(self, page: Page):
         super().__init__(

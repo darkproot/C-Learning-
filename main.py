@@ -5,6 +5,7 @@ from modules import color
 def main(page: Page):
     page.title = "C LEARNING"
     page.bgcolor = color.BG
+    page.theme_mode = 'dark'
     # page.window.full_screen = True
     page.fonts = {
         'code': r"utils\polices\JetBrainsMono-Medium.ttf",
