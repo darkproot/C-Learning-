@@ -6,6 +6,7 @@ from pages.exercises import operateurs
 from pages.exercises import struct_controle
 from pages.exercises import struct_donnne
 from pages.exercises import fonctions_exercices
+from pages.exercises import pointeur
 from modules.color import DEEP_BLUE
 
 def change_page(e: ControlEvent): 
@@ -23,6 +24,8 @@ def change_page(e: ControlEvent):
             display[-1] = struct_donnne.Display(page)
         case 'fonctions':
             display[-1] = fonctions_exercices.Display(page)
+        case 'pointeurs':
+            display[-1] = pointeur.Display(page)
     page.update()
 
 class Display(Container):
