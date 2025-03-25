@@ -67,5 +67,6 @@ class Proposition(Container):
         icon_name: str = 'check' if self.state else 'close'
         icon: Icon = Icon(icon_name, scale=1, color='white')
         self.border = border
-        self.content.controls.append(Container(icon, bgcolor=color, padding=5, border_radius=20))
+        if len(self.content.controls) == 1:
+            self.content.controls.append(Container(icon, bgcolor=color, padding=5, border_radius=20))
         page.update()

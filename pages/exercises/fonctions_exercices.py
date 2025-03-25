@@ -1,10 +1,11 @@
 from flet import Container, padding, Page, ListView
-from modules.fonctions import pourcentage
-from modules.texte import Spacing
-from modules.title import Titre, GrandTitre
-from modules.qcm import Qcm
-from modules.point import Point
 from modules.code import MiniCode, ExerciceCode
+from modules.title import Titre, GrandTitre
+from modules.fonctions import pourcentage
+from modules.constantes import HEIGHT
+from modules.texte import Spacing
+from modules.point import Point
+from modules.qcm import Qcm
 
 MINICODE1: str = """\
 #include <stdio.h>
@@ -283,13 +284,13 @@ class Display(Container):
             bgcolor='white',
             border_radius=10,
             expand=True,
-            height=page.window.height - 70,
+            height=page.window.height - HEIGHT,
             padding=padding.only(pourcentage(page.window.width, 10), 15, pourcentage(page.window.width, 10)),
         )
         self.content = ListView(
             controls=[
                 GrandTitre(text="Fonctions"), Spacing(),
-                Titre("Questions a choix multiples"),
+                Titre("Questions à choix multiples"),
                 Qcm(**QCM1),
                 Qcm(**QCM2),
                 Qcm(**QCM3),
@@ -301,7 +302,7 @@ class Display(Container):
                 Qcm(**QCM9),
                 Qcm(**QCM10),
                 Spacing(),
-                Titre("Questions a reponse ouverte"),
+                Titre("Questions à reponse ouverte"),
                 Spacing(), Point("Exercice 1"), 
                 Spacing(), ExerciceCode(**EXERCICE1),
                 Spacing(), Point("Exercice 2"), 

@@ -1,9 +1,10 @@
 from flet import Container, ListView, Page, padding
-from modules.fonctions import pourcentage
-from modules.qcm import Qcm
 from modules.title import Titre, GrandTitre
+from modules.fonctions import pourcentage
+from modules.constantes import HEIGHT
 from modules.code import MiniCode
 from modules.texte import Spacing
+from modules.qcm import Qcm
 
 
 MINICODE1: str = """int x = 5;\nprintf("%d", x++);"""
@@ -77,13 +78,13 @@ class Display(Container):
             bgcolor='white',
             border_radius=10,
             expand=True,
-            height=page.window.height - 70,
+            height=page.window.height - HEIGHT,
             padding=padding.only(pourcentage(page.window.width, 10), 15, pourcentage(page.window.width, 10)),
         )
         self.content = ListView(
             controls=[
                 GrandTitre(text="Variable"), Spacing(),
-                Titre('Questions a choix multiples'), 
+                Titre('Questions à choix multiples'), 
                 Qcm(**QCM1),
                 Qcm(**QCM2),
                 Qcm(**QCM3),
