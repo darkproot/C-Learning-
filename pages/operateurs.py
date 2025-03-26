@@ -57,38 +57,46 @@ TABLEAU6: list[list[str]] = [
 INTRO: str = """En langage C, les opérateurs sont des symboles qui permettent d'effectuer des opérations sur des variables et des valeurs. Ils sont essentiels pour écrire des programmes fonctionnels et efficaces."""
 
 PARA1: str = """Ces opérateurs permettent d'effectuer des calculs mathématiques de base."""
-EXEMPLE1: str = f"""#include <stdio.h>\n\nvoid main() {{
-    {'\t'*3}int a = 10, b = 3;
-    {'\t'*3}printf("Addition: %d  ", a + b);
-    {'\t'*3}printf("Soustraction: %d  ", a - b);
-    {'\t'*3}printf("Multiplication: %d  ", a * b);
-    {'\t'*3}printf("Division: %d  ", a / b);
-    {'\t'*3}printf("Modulo: %d", a % b);
-    }}
+EXEMPLE1: str = r"""#include <stdio.h>
+
+void main() {
+    int a = 10, b = 3;
+    printf("Addition: %d\n", a + b);
+    printf("Soustraction: %d\n", a - b);
+    printf("Multiplication: %d\n", a * b);
+    printf("Division: %d\n", a / b);
+    printf("Modulo: %d", a % b);
+}
 """
 PARA2: str = """Ils permettent de comparer deux valeurs et retournent un résultat booléen (1 pour vrai, 0 pour faux)"""
-EXEMPLE2: str = f"""#include <stdio.h>\n\nvoid main() {{
-    {'\t'*3}int a = 5, b = 10;
-    {'\t'*3}printf("a == b: %d  ", a == b);
-    {'\t'*3}printf("a != b: %d  ", a != b);
-    {'\t'*3}printf("a > b: %d  ", a > b);
-    {'\t'*3}printf("a < b: %d", a < b);
-    }}
+EXEMPLE2: str = r"""#include <stdio.h>
+
+void main() {
+    int a = 5, b = 10;
+    printf("a == b: %d\n", a == b);
+    printf("a != b: %d\n", a != b);
+    printf("a > b: %d\n", a > b);
+    printf("a < b: %d", a < b);
+}
 """
-EXEMPLE3: str = f"""#include <stdio.h>\n\nvoid main() {{
-    {'\t'*3}int a = 5, b = 10;
-    {'\t'*3}printf("a > 0 && b > 0: %d  ", (a > 0) && (b > 0));
-    {'\t'*3}printf("a > 10 || b > 10: %d  ", (a > 10) || (b > 10));
-    {'\t'*3}printf("!(a > 0): %d ", !(a > 0));
-    }}
+EXEMPLE3: str = r"""#include <stdio.h>
+
+void main() {
+    int a = 5, b = 10;
+    printf("(a > 0) && (b > 0) => %d\n", (a > 0) && (b > 0));
+    printf("(a > 10) || (b > 10) => %d\n", (a > 10) || (b > 10));
+    printf("!(a > 0) => %d ", !(a > 0));
+}
 """
-EXEMPLE4: str = f"""#include <stdio.h>\n\nvoid main() {{
-    {'\t'*3}int a = 10;
-    {'\t'*3}a += 5;
-    {'\t'*3}printf("a += 5: %d  ", a);
-    {'\t'*3}a *= 2;
-    {'\t'*3}printf("a *= 2: %d  ", a);
-    }}
+EXEMPLE4: str = r"""#include <stdio.h>
+
+void main() {
+    int a = 10;
+    a += 5;
+    printf("a += 5: %d\n", a);
+    a *= 2;
+    printf("a *= 2: %d", a);
+}
 """
 CONCLUSION1: str = """Les opérateurs sont des éléments fondamentaux du langage C. Ils permettent d'effectuer des calculs, des comparaisons et des opérations logiques essentielles au bon fonctionnement d'un programme. En maîtrisant les opérateurs arithmétiques, de comparaison, logiques, d'affectation et binaires, on peut écrire du code plus concis et efficace."""
 CONCLUSION2: str = """Cependant, les opérateurs seuls ne suffisent pas pour structurer un programme de manière logique. Pour prendre des décisions et exécuter certaines instructions sous certaines conditions, nous avons besoin d'outils de contrôle du flux d'exécution."""

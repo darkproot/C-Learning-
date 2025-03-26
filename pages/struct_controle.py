@@ -113,12 +113,12 @@ while (condition) {
 }
 """
 PARA8: str = """Elle garantit l'exécution du bloc au moins une fois, puis continue tant que la condition est vraie."""
-EXEMPLE5: str = """#include <stdio.h>
+EXEMPLE5: str = r"""#include <stdio.h>
 
 int main() {
     int i = 1;
     while (i <= 5) {
-        printf("Iteration %d -> ", i);
+        printf("Iteration %d\n", i);
         i++;
     }
 }
@@ -153,29 +153,27 @@ void main() {
 }
 """
 PARA10: str = """Elle permet de sortir immédiatement d'une boucle ou d'un switch."""
-EXEMPLE8: str = """#include <stdio.h>
+EXEMPLE8: str = r"""#include <stdio.h>
 
 void main() {
     for (int i = 1; i <= 10; i++) {
         if (i == 5) {
             break; // Arrête la boucle dès que i vaut 5
         }
-        printf("%d -> ", i);
+        printf("%d\n", i);
     }
-}
-"""
+}"""
 PARA11: str = """Elle permet de sauter l'itération courante et passer à la suivante."""
-EXEMPLE9: str = """#include <stdio.h>
+EXEMPLE9: str = r"""#include <stdio.h>
 
 void main() {
     for (int i = 1; i <= 5; i++) {
         if (i == 3) {
             continue; // Ignore le reste du code pour i == 3
         }
-        printf("%d -> ", i);
+        printf("%d\n", i);
     }
-}
-"""
+}"""
 PARA12: str = """Elle permet de quitter une fonction et retourner une valeur."""
 EXEMPLE10: str = """#include <stdio.h>
 

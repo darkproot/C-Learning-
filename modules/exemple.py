@@ -16,9 +16,10 @@ class Exemple(Container):
         self.text_style = TextStyle(color='white', shadow=BoxShadow(1, 1, 'black', Offset(2, 2)), weight='w_700', size=20)
         self.s_height = height
         self.container = Container(
+                blur=5,
                 expand=True,
                 border_radius=20,
-                bgcolor=colors.with_opacity(.2, 'black'),
+                bgcolor=colors.with_opacity(.3, BG),
                 padding=0,
                 border=Border(
                     BorderSide(4, BG),

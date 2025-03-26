@@ -66,7 +66,7 @@ void modifier(int *x) {
 int main() {
     int nombre = 5;
     modifier(&nombre);
-    printf("%d", nombre); // Affichera 10, car on modifie directement l’adresse mémoire
+    printf("%d", nombre); // Affichera 10, car on modifie directement l'adresse mémoire
     return 0;
 }"""
 PARA7: str = """La fonction main() est le point d'entrée de tout programme en C."""

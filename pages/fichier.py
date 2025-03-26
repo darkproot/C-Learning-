@@ -33,6 +33,7 @@ PARAM3: str = """mode : Mode d'ouverture (lecture, écriture, etc.)"""
 PARAM4: str = """Retourne un pointeur de type FILE* ou NULL en cas d'échec."""
 EXEMPLE1: str = """\
 #include <stdio.h>
+#include <direct.h>
 
 int main() {
     FILE *f = fopen("test.txt", "w");

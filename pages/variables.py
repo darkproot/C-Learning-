@@ -1,4 +1,4 @@
-from flet import Container, padding, Page, ListView, Row
+from flet import Container, padding, Page, ListView
 from modules.fonctions import pourcentage
 from modules.syntaxe import Syntaxe
 from modules.title import Titre, GrandTitre

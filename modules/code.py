@@ -1,28 +1,14 @@
 from flet import Container, CupertinoTextField, Column, TextStyle, FilledButton, Row, IconButton, ButtonStyle, MainAxisAlignment, icons
 from flet import ControlEvent, Page, Animation
 from modules.texte import Texte, Spacing
+from modules.fonctions import create_tmp_file
 import subprocess
-import tempfile
 
 BASE: str = r"""#include <stdio.h>
 
 int main() {
     printf("Hello World!\n");
 }"""
-
-def create_tmp_file(data: str, extension: str = '.c') -> str:
-    """Fonction qui cree un fichier temporaire et renvoit le chemin vers ce fichier
-
-    Args:
-        data (str): donnee a ecrire
-        extension (str, optional): Extension du fichier. Defaults to '.c'.
-
-    Returns:
-        str: Chemin vers le fichier
-    """
-    with tempfile.NamedTemporaryFile(suffix=extension, delete=False) as file:
-        file.write(data.encode())
-        return file.name
 
 class MiniCode(Container):
     def __init__(self, code: str = "void main() {}"):

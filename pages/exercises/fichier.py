@@ -21,7 +21,7 @@ int main() {
     return 0;
 }"""
 
-FILE1: str = str(get_absolute_path("Training files")).replace('\\', '/')
+FILE: str = str(get_absolute_path("Training files")).replace('\\', '/')
 
 CODE1_1: str = """\
 #include <stdio.h>
@@ -32,13 +32,13 @@ CODE1_1: str = """\
 int main() {
 """
 CODE1_2: str = f"""\
-    _chdir("{FILE1}");
+    _chdir("{FILE}");
 
     return 0;
 """
 CODE1: str = CODE1_1 + CODE1_2 + '}'
 SOLUTION1_1: str = f"""\
-    _chdir("{FILE1}");
+    _chdir("{FILE}");
     FILE * file = fopen(FICHIER, "r");
 """
 SOLUTION1_2: str = """\
@@ -60,7 +60,7 @@ int main() {
 """
 CODE2: str = CODE2_1 + CODE1_2 + '}'
 SOLUTION2_1: str = f"""\
-    _chdir("{FILE1}");
+    _chdir("{FILE}");
     FILE * file = fopen(FICHIER, "w");
 """ 
 SOLUTION2_2: str = r"""
@@ -83,7 +83,7 @@ int main() {
 """
 CODE3: str = CODE3_1 + CODE1_2 + '}'
 SOLUTION3_1: str = f"""\
-    _chdir("{FILE1}");
+    _chdir("{FILE}");
     FILE * file = fopen(FICHIER, "a");
 """
 SOLUTION3_2: str = r"""

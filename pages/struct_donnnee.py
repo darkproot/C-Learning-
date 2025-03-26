@@ -30,7 +30,7 @@ struct nom_structure {
     type_n membre_n;
 };
 """
-EXEMPLE2: str = """#include <stdio.h>
+EXEMPLE2: str = r"""#include <stdio.h>
 
 struct Etudiant {
     char nom[50];
@@ -40,7 +40,7 @@ struct Etudiant {
 
 int main() {
     struct Etudiant e1 = {"Jean", 20, 14.5};
-    printf("Nom : %s, Âge : %d, Moyenne : %.2f", e1.nom, e1.age, e1.moyenne);
+    printf("Nom : %s, \nÂge : %d, \nMoyenne : %.2f", e1.nom, e1.age, e1.moyenne);
     return 0;
 }"""
 PARA5: str = """Avantages : Permet de gérer des données complexes sous un même bloc"""
@@ -54,7 +54,7 @@ void main() {
         {4, 5, 6}, 
         {7, 8, 9}
     };
-    printf("Élément en (1,2) : %d", matrice[1][2]); // Affiche 6
+    printf("Élément en (1, 2) : %d", matrice[1][2]); // Affiche 6
 }"""
 PARA8: str = """L'accès aux éléments se fait via deux indices :"""
 PARA9: str = """ matrice[i][j] accède à l'élément situé à la ligne i et à la colonne j."""
