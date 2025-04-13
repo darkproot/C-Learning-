@@ -8,7 +8,7 @@ C Learning (CL) est une application PC interactive conçue pour enseigner la pro
 
 3. **Structures de données :** Introduction aux _tableaux_, _structures_ et `union`s pour organiser et manipuler efficacement les données.
 
-4. **Structures de contrôle :** Explication des instructions conditionnelles (`if`, `else`, `switch`) et des boucles (`fo`r, `while`, `do-while`).
+4. **Structures de contrôle :** Explication des instructions conditionnelles (`if`, `else`, `switch`) et des boucles (`for`, `while`, `do-while`).
 
 5. **Fonctions :** Création et utilisation des _fonctions_, passage de paramètres et notion de portée des variables
 
