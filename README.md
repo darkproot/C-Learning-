@@ -1,4 +1,9 @@
 # C LEARNING (CL)
+
+<div style="display: flex; justify-content: center; flex-direction: column;">
+    <img src="./assets/logo.png" alt="Logo Application" style="border-radius: 50px;">
+</div>
+
 C Learning (CL) est une application PC interactive conçue pour enseigner la programmation en langage C. Elle propose une approche pédagogique avec des explications détaillées, des exemples concrets et des exercices pratiques pour permettre aux utilisateurs d’acquérir et de renforcer leurs compétences en C
 
 ## Résumé des chapitres
